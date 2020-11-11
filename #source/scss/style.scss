@@ -1,0 +1,442 @@
+//<МИКСИНЫ>===============================================================================================
+@import "mixins.scss";
+//</МИКСИНЫ>===============================================================================================
+
+//<ШРИФТЫ>===============================================================================================
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400&family=Marck+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap');
+//<Подключаем шрифты>=======================================================================================
+
+//</Подключаем шрифты>=======================================================================================
+
+//<Иконочные шрифты>==========================================================================================
+
+//</Иконочные шрифты>==========================================================================================
+
+//<Шрифт по умолчанию>==========================================================================================
+$fontfamily: "";
+//</Шрифт по умолчанию>==========================================================================================
+
+//</ШРИФТЫ>=======================================================================================================
+
+//<ПЕРЕМЕННЫЕ>===========================================================================================================
+$minwidth: 320px;
+$mw: 1170;
+$md1: $mw + 12;
+$md2: 991.98;
+$md3: 767.98;
+$md4: 479.98;
+//</ПЕРЕМЕННЫЕ>===========================================================================================================
+
+//<ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
+@import "null.scss";
+body {
+	color: #000;
+	font-size: 14px;
+	&.lock {
+		overflow: hidden;
+	}
+}
+//</ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
+
+//<ОБОЛОЧКА>===========================================================================================================
+.wrapper {
+	width: 100%;
+	min-height: 100%;
+	overflow: hidden;
+	&.loaded {
+	}
+}
+//</ОБОЛОЧКА>===========================================================================================================
+
+//<ОСНОВНАЯ СЕТКА>===========================================================================================================
+.container {
+	max-width: $mw + px;
+	margin: 0 auto;
+	width: 100%;
+	@media (max-width: $md1+px) {
+		max-width: 970px;
+	}
+	@media (max-width: $md2+px) {
+		max-width: 850px;
+		padding: 0 10px;
+	}
+	@media (max-width: $md3+px) {
+		max-width: none;
+		padding: 0 10px;
+	}
+}
+//</ОСНОВНАЯ СЕТКА>===========================================================================================================
+
+//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>====================================================================================================
+@import "forms.scss";
+@import "ui.scss";
+//</ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>====================================================================================================
+
+//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
+@import "header.scss";
+@import "footer.scss";
+@import "home.scss";
+//</ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
+
+//<ОСНОВНОЙ БЛОК>====================================================================================================
+img{border-radius: 50px;}
+.mainblock{
+	min-height: 100vh;
+	background: url(../img/IMG_2181.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+	position: relative;
+	@media (max-width: $md4 + px){
+		background: url(../img/IMG_2175.jpg);
+		background-position: -394px 0;
+	background-size: cover;
+	}
+	&__tagline{
+		position: absolute;
+		bottom: 20%;
+		max-width: 750px;
+		font-family: Marck Script;
+		font-size: 48px;
+		color: #FFFFFF;
+		@media (max-width: $md3 + px){
+			display: none;
+		}
+	}
+}
+.title{
+	&__logo{
+		margin: 0 auto;
+		width: 260px;
+		@include flexbox();
+		position: relative;
+		justify-content: center;
+		@media (max-width: $md4 + px){
+		width: 185px;
+	}
+	}
+	img{
+		width: 260px;
+	}
+	p{
+		display: block;
+		position: absolute;
+		top: 48%;
+		margin-top: -18px;
+		z-index: 1;
+		font-size: 36px;
+		font-weight: 700;
+		text-decoration: none;
+		font-family: Amatic SC;
+		color: #3A3A3A;
+		@media (max-width: $md4 + px){
+		top: 50%;
+		font-size: 30px;
+	}
+	}
+}
+.about{
+	padding: 50px 0;
+	&__title p{
+		left: 83px;
+		letter-spacing: 0.20em;
+		@media (max-width: $md4 + px){
+			left: 56px;
+		}
+	}
+	&__row{
+		margin-top: 50px;
+		@include flexbox();
+		@media (max-width: $md2 + px){
+			display: block;
+		}
+	}
+	&__image{
+		flex: 0 1 50%;
+			.slick-dots {bottom: 40px;}
+		img{max-width: 100%;}
+	}
+	&__text{
+		font-family: Montserrat;
+		font-weight: 500;
+		padding-right: 50px;
+		flex: 0 1 50%;
+		line-height: 23px;
+		@media (max-width: $md2 + px){
+			padding-right: 0;
+			margin-bottom: 25px;
+		}
+		&__subtitle{
+			font-size: 24px;
+			margin-bottom: 70px;
+			@media (max-width: $md2 + px){margin-bottom: 40px;}
+		}
+		&__maintext{
+			font-size: 18px;
+		}
+	}
+}
+.ourdogs{
+	background: #FFF7EB;
+	padding: 50px 0;
+	&__title p{
+		left: 43px;
+		letter-spacing: 0.10em;
+		@media (max-width: $md4 + px){
+			left: 28px;
+		letter-spacing: 0.05em;
+		}
+	}
+	&__text{
+		margin-top: 40px;
+		text-align: center;
+		font-family: Montserrat;
+		font-weight: 500;
+		font-size: 18px;
+		line-height: 23px;
+	}
+	&__row{
+		margin-top: 40px;
+		@include flexbox();
+			@media (max-width: $md4 + px){
+				flex-direction: column;
+
+			}
+		img{max-width: 100%;}
+		span{
+			@include flexbox();
+			align-items: center;
+			justify-content: center;
+			font-family: Montserrat;
+			font-weight: 500;
+			font-size: 24px;
+			letter-spacing: 0.1em;
+			text-transform: uppercase;
+			color: #3A3A3A;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba(255, 255, 255, 0.6);
+			opacity: 0;
+			text-align: center;
+			border-radius: 50px;
+			transition: all 0.5s;
+		}
+		&__column{
+			flex: 0 1 50%;
+			margin-left: 10px;
+			position: relative;
+			:hover{
+				span{
+					opacity: 1;
+				}
+			}
+			@media (max-width: $md4 + px){
+				padding: 5px 0;
+				:active{color: #fff;
+					span{opacity: 0;}}
+				span{
+					opacity: 1;
+				}
+			}
+		}
+	}
+}
+.contact{
+	font-family: Montserrat;
+	font-weight: 500;
+	background: #EDCFA3;
+	padding: 50px 0;
+	&__row{
+		@include flexbox();
+		justify-content: space-between;
+	}
+	&__info{
+		flex: 0 1 50%;
+		a{color: #803025;
+		font-weight: 700;
+		transition: all 0.5s;}
+		a:hover{color: #EBEBEB;}
+	&__title{
+		margin-bottom: 50px;
+	}
+	&__number{
+		font-size: 24px;
+		margin-bottom: 10px;
+	}
+	&__mail{
+		margin-top: 15px;
+		font-size: 24px;
+	}
+	&__social{
+		@include flexbox();
+		margin: 15px 0 0 0;
+		:hover{width: 70px;}
+		img{
+			width: 60px;
+			transition: all 0.5s;
+		}
+	}
+}
+	&__image{
+		flex: 0 1 40%;
+		@media (max-width: $md2 + px){
+		display: none;
+		}
+	img{width: 400px;}
+}
+}
+.corgi{
+	background: #EDCFA3;
+	padding: 50px 0;
+	@media (max-width: 600px){margin-top: 50px;}
+	max-height: 100%;
+	&__row{
+		@include flexbox();
+		@media (max-width: $mw + px){
+			display: block;
+		}
+	}
+	&__text{
+		flex: 0 1 50%;
+		font-family: Montserrat;
+		font-weight: 500;
+		padding-right: 50px;
+		@media (max-width: $mw + px){
+			text-align: center;
+			margin-bottom: 30px;
+			padding: 0;
+		}
+		&__title{
+			font-size: 48px;
+			text-transform: uppercase;
+			margin-bottom: 35px;
+		}
+		&__maintext{
+			font-size: 18px;
+			line-height: 21px;
+		}
+	}
+	&__image{
+		flex: 0 1 50%;
+		.slick-dots {bottom: 30px;}
+		&__item{
+		min-width: 0;
+			img{
+			max-width: 100%;
+			object-fit: contain;
+			}
+		}
+	}
+}
+	.slick-dots li.slick-active button{
+		background-color: transparent;
+		border: 1px solid #fff;
+	}
+.slick-list{}
+	.mainslider {
+		.slick-track{
+			align-items: flex-start;
+		}
+		min-width: 0;
+		position: relative;
+		align-self: center;
+	.slick-dots {
+	display: flex;
+	position: absolute;
+	left: 50%;
+	margin: 0 -30px;
+	li{
+		margin: 0 5px;
+	}
+	button{
+		font-size: 0;
+		width: 10px;
+		height: 10px;
+		border-radius: 50%;
+		background-color: #fff;
+	}
+	}
+	}
+
+.dogs{
+	&__pages{
+		margin-bottom: 30px;
+		&__row{
+			@include flexbox();
+			padding-top: 30px;
+			@media (max-width: $md3 + px){
+				display: block;
+			}
+		}
+		&__img{
+			flex: 0 1 50%;
+			img{
+				max-width: 100%;
+				margin-bottom: 15px;
+			}
+		}
+		&__info{
+			flex: 0 1 50%;
+			font-family: Montserrat;
+		}
+	}
+}
+.reverse{
+	background: #EBEBEB;
+	.info{
+		order: 1;
+	}
+	.dogs__pages__img{
+		order: 2;
+	}
+	.info{
+		padding: 0 50px 0 0;
+	}
+}
+.info{
+	font-size: 18px;
+	font-family: Montserrat;
+	font-weight: 400;
+	padding-left: 50px;
+	&__parents{
+		line-height: 23px;
+	}
+	&__pedigree{
+		display: block;
+		background: #B06744;
+		height: 45px;
+		width: 150px;
+		text-align: center;
+		line-height: 45px;
+		color: #fff;
+		border-radius: 20px;
+		transition: all 0.5s;
+	}
+	a:hover{background-color: #EDCFA3;
+				color: #3A3A3A;}
+	&__name{text-transform: uppercase;}
+	@media (max-width: $md3 + px){
+		padding-left: 10px;
+	}
+	&__category{
+		margin-bottom: 30px;
+	}
+}
+.attribute{
+	margin-bottom: 15px;
+}
+.value{
+	font-family: Montserrat;
+	font-weight: 300;
+}
+.last{margin-bottom: 0;
+		padding-bottom: 30px;}
+//====================================================================================================
+
+//</ОСНОВНОЙ БЛОК>====================================================================================================
